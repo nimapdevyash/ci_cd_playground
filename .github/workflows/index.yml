@@ -17,8 +17,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{secrets.KEY}}
           script: |
-            source ~/.profile || source ~/.bashrc
             cd ci_cd_playground
             git pull
-            pnpm i
-            pnpm start
+            /home/ubuntu/.nvm/versions/node/v24.16.0/bin/pnpm i
+            /home/ubuntu/.nvm/versions/node/v24.16.0/bin/pnpm start
