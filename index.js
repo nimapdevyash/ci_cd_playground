@@ -12,6 +12,8 @@ app.get("/", (req, res) => {
       title: "Yash Is the King",
       description:
         "yash is a great person , i mean so great of a being we can't describe him in words let alone in any meaningful way",
+
+      check: "this is the added field to check the ci-cd",
     },
   });
 });
