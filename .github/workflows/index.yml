@@ -6,22 +6,18 @@ on:
       - main
 
 jobs:
-  first_job:
+  ssh_into_server_and_restart_with_updated_code:
     runs-on: ubuntu-latest
 
     steps:
-      - name: fetching the code
-        uses: actions/checkout@v4
-
-      - name: setup nodejs and pnpm
-        uses: cybergavin/setup-nodejs-project@v1
+      - name: ssh into the server
+        uses: appleboy/ssh-session$v4
         with:
-          node-version: "22"
-          cache-path: node_modules
-          lock-file: package-lock.json
-
-      - name: install packages
-        run: pnpm i
-
-      - name: start the server
-        run: pnpm start
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{secrets.KEY}}
+          scripts: |
+            cd ci_cd_playground
+            git pull
+            pnpm i
+            pnpm start
