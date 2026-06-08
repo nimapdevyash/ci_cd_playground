@@ -1,0 +1,20 @@
+name: first step toward automation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: fetching the code
+        uses: actions/checkout@v4
+
+      - name: install packges
+        run: pnpm i
+
+      - name: start the server
+        run: pnpm start
