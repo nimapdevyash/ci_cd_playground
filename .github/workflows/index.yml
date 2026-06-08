@@ -17,6 +17,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{secrets.KEY}}
           script: |
+            source ~/.profile || source ~/.bashrc
             cd ci_cd_playground
             git pull
             pnpm i
