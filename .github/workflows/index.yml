@@ -19,5 +19,5 @@ jobs:
           script: |
             cd ci_cd_playground
             git pull
-            /home/ubuntu/.nvm/versions/node/v24.16.0/bin/pnpm i
-            /home/ubuntu/.nvm/versions/node/v24.16.0/bin/pnpm start
+            pnpm i
+            pnpm start
