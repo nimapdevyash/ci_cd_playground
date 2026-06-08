@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: ssh into the server
-        uses: appleboy/ssh-session$v4
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{secrets.KEY}}
-          scripts: |
+          script: |
             cd ci_cd_playground
             git pull
             pnpm i
