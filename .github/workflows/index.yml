@@ -13,7 +13,14 @@ jobs:
       - name: fetching the code
         uses: actions/checkout@v4
 
-      - name: install packges
+      - name: setup nodejs and pnpm
+        uses: cybergavin/setup-nodejs-project@v1
+        with:
+          node-version: "22"
+          cache-path: node_modules
+          lock-file: package-lock.json
+
+      - name: install packages
         run: pnpm i
 
       - name: start the server
